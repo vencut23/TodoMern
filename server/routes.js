@@ -19,4 +19,9 @@ Router.route('/delete/:id').delete(asyncHandler(async (req,res)=>{
     const del= await todo.findByIdAndDelete(req.params.id);
     res.json(del);
 }));
+
+Router.route('/update/:id').put(asyncHandler(async (req,res)=> {
+    const up= await todo.findByIdAndUpdate(req.params.id,req.body);
+    res.json(up);
+}));
 module.exports = Router;
